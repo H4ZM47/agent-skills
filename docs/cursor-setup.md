@@ -2,7 +2,20 @@
 
 ## Setup
 
-### Option 1: Rules Directory (Recommended)
+### Option 0: Cursor plugin (recommended)
+
+This repo ships a Cursor plugin manifest at `.cursor-plugin/plugin.json`. It declares:
+
+- **Skills** — `skills/*/SKILL.md` (on-demand discovery)
+- **Agents** — `agents/*.md` (e.g. code reviewer, security auditor, test engineer)
+- **Commands** — `.claude/commands/*.md` (lifecycle slash commands such as `/spec`, `/plan`, `/build`)
+- **Hooks** — `hooks/hooks-cursor.json` runs `hooks/session-start.sh` on `sessionStart` to surface the `using-agent-skills` meta-skill (requires `jq` on PATH)
+
+**Local development:** open the folder that contains `.cursor-plugin/` as the plugin root (this repository root), or symlink it under `~/.cursor/plugins/local/agent-skills/` so Cursor picks it up as a local plugin.
+
+**Marketplace:** `.cursor-plugin/marketplace.json` lists the same `agent-skills` package with `"source": "."` for monorepo-style installs (aligned with the Claude marketplace id `addy-agent-skills`). In CI, `scripts/validate-cursor-plugin.mjs` checks both files against JSON schemas vendored from [cursor/plugins](https://github.com/cursor/plugins) (`schemas/*.schema.json`).
+
+### Option 1: Rules Directory
 
 Cursor supports a `.cursor/rules/` directory for project-specific rules:
 
