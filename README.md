@@ -63,7 +63,7 @@ claude --plugin-dir /path/to/agent-skills
 <details>
 <summary><b>Cursor</b></summary>
 
-**Plugin (recommended):** this repository is a Cursor plugin. Install from a clone or marketplace entry that points at the repo root (manifest: `.cursor-plugin/plugin.json`). Skills, agents, slash commands (`.claude/commands`), and a `sessionStart` hook load from the plugin package.
+**Plugin (recommended):** this repository is a Cursor plugin. Install from a clone or marketplace entry that points at the repo root (manifest: `.cursor-plugin/plugin.json`). In Cursor, use **Settings → Plugins** to add or enable a local plugin folder. Skills, agents, slash commands (`.claude/commands`), and a `sessionStart` hook load from the plugin package.
 
 **Rules-only:** copy any `SKILL.md` into `.cursor/rules/`, or reference the full `skills/` directory. See [docs/cursor-setup.md](docs/cursor-setup.md).
 
